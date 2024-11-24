@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CultureBoat - Inspired Design</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio id="background-music" autoplay loop>
+    <source src="assets/audio/Magical-Moments.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div class="water-effect"></div>
+
+  <main data-scroll-container>
+    <!-- Navigation -->
+    <div id="horizontal-scroll">
+      <div class="scroll-wrapper">
+        <h2 class="scroll-item">DESIGN</h2>
+        <h2 class="scroll-item">PR</h2>
+        <h2 class="scroll-item">SOCIAL</h2>
+      </div>
+    </div>
+
+    <div class="vertical-images">
+      <div class="image-group" data-group="Design">
+        <img src="assets/images/Design1.jpeg" alt="Design 1">
+        <img src="assets/images/Design2.jpeg" alt="Design 2">
+      </div>
+      <div class="image-group" data-group="PR">
+        <img src="assets/images/PR1.jpeg" alt="PR 1">
+        <img src="assets/images/PR2.jpeg" alt="PR 2">
+      </div>
+      <div class="image-group" data-group="Social">
+        <img src="assets/images/Social1.jpeg" alt="Social 1">
+        <img src="assets/images/Social2.jpeg" alt="Social 2">
+      </div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <div class="custom-cursor">
+    <div class="dot"></div>
+  </div>
+
+  <button class="toggle-btn">☰</button>
+  <div class="vertical-menu">
+    <h3>Design</h3>
+    <h3>PR</h3>
+    <h3>Social</h3>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
+  <script>
+    VANTA.WAVES({
+    el: ".water-effect",
+    color: 0x1d3557,
+    shininess: 50,
+    waveHeight: 20,
+    waveSpeed: 0.5,
+    zoom: 1,
+    });
+  </script>
+  <script>
+    document.addEventListener('click', () => {
+        const music = document.getElementById('background-music');
+        if (music.paused) {
+            music.play();
+        }
+    });
+  </script>
+  <script>
+    document.querySelector('.toggle-btn').addEventListener('click', () => {
+      const menu = document.querySelector('.vertical-menu');
+      menu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*overflow: hidden;*/
+  font-family: Arial, sans-serif;
+  perspective: 1000px;
+}
+
+body{
+  /*cursor:none;*/
+  /*cursor: url('path-to-your-cursor.svg'), auto;*/
+  overflow: hidden;
+  background-color: #2B2E4A;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  /*background-color: #27374D;*/
+  /*background-color: #27374D;*/
+  /*background-color: #393E46;*/
+  /*background-color: #3B1C32;*/
+  /*background-color: #1F4529;*/
+  /*background-color: #493628;*/
+}
+
+/* Horizontal Scrolling Section */
+/*#horizontal-scroll {
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+  scroll-snap-type: none;
+  padding: 20px;
+  background-color: transparent;
+  gap: 50px;
+  width: 100%;
+  height: 100px;
+  z-index: 10;
+  position: sticky;
+  top:0;
+  min-width: 100vw;
+}
+
+.scroll-wrapper {
+  display: flex;
+  min-width: 120%;
+  gap: 50px;
+  min-width: 150%;
+}*/
+
+.scroll-item {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+  scroll-snap-align: center;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: bold;
+  min-width: 300px;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/*.scroll-item:hover {
+  transform: scale(1.1); 
+}*/
+
+/* Vertical Images Section */
+.vertical-images {
+  position: relative;
+  height: 100vh;
+  /*overflow: hidden;*/
+  z-index:1;
+  overflow-y: hidden;
+  /*display:flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 50px 0;
+  background-color: white;*/
+}
+
+.image-group {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  /*align-items: center;*/
+  justify-content: center;
+  gap: 20px;
+  z-index: 0;
+  transform: translateY(100%);
+  transition: transform 1s ease-in-out;
+  overflow: visible;
+  /*display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;*/
+}
+
+.image-group.active {
+  transform: translateY(0);
+   /* Bring the active image group into view */
+}
+
+.image-group img {
+  /*max-width: 80%;
+  height: auto;
+  margin: 10px 0;
+  border-radius: 10px; /* Optional: Rounded corners */
+  max-width: 45%;
+  height: auto;
+  border-radius: 10px;
+  margin: 10px;
+  z-index: 0;
+  /*transition: transform 0.3s;*/
+}
+
+.image-group img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Scrollbar Customization (Optional) */
+#horizontal-scroll::-webkit-scrollbar {
+  display:none;
+  height: 8px;
+}
+
+#horizontal-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+#horizontal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+#horizontal-scroll {
+  position: sticky;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 50%; /* Center the bar vertically */
+  transform: translateY(-50%); /* Adjust for perfect centering */
+  white-space: nowrap;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  padding: 10px 0;
+  z-index: 10;
+  /*background-color: rgba(255, 255, 255, 0.8);*/
+  font-size: xx-large;
+  overflow-y: hidden;
+  z-index: 1000;
+  cursor:grab;
+  cursor: -webkit-grab;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+#horizontal-scroll.dragging {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+.scroll-wrapper {
+  display: flex;
+  gap: 50px; /* Space between headings */
+  min-width: 200%;
+  justify-content: center;
+  align-items: center;
+}
+.custom-cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 2px solid blue;
+  border-radius: 50%;
+  background-color: transparent;
+  pointer-events: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 1000;
+}
+
+.custom-cursor.active {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+}
+
+/*.custom-cursor .dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}*/
+img{
+  pointer-events: none;
+}
+/*.custom-cursor.clicked {
+  background-color: blue;
+  transform: scale(0.8);
+}*/
+
+.custom-cursor.dragging {
+  background-color: blue;
+  transform: scale(0.8);
+}
+/*.dragging{
+  cursor: url('path-to-small-blue-cursor.svg'), auto;
+}*/
+
+/* Water effect using CSS animation */
+@keyframes waterRipple{
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.water-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+  radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05), transparent 60%),
+  linear-gradient(135deg, rgba(0, 153, 255, 0.1), rgba(255,255,255,0.5));
+  background-size: 300% 300%;
+  animation: waterRipple 15s infinite;
+  pointer-events: none;
+  /*mix-blend-mode: overlay;*/
+  z-index: 10; /* Place behind all other content */
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+}
+#background-music {
+  display: none;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.vertical-menu {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  display: none;
+  flex-direction: column;
+  background-color: #1d3557;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.vertical-menu h3 {
+  color: white;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.vertical-menu.active {
+  display: flex;
+}
